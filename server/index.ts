@@ -1,4 +1,5 @@
 import puppeteer from 'puppeteer';
+import { tableToJSON } from './tableToJson';
 
 const urls: string[] = [
   'https://en.wikipedia.org/wiki/Women%27s_high_jump_world_record_progression',
@@ -14,5 +15,8 @@ const getPageContent = async (url: URL): Promise<string> => {
 
 (async () => {
   const content = await getPageContent(new URL(urls[1]));
-  console.log(content);
+  const table = await tableToJSON(content, {
+    containClasses: ['wikitable', 'sortable'],
+  });
+  console.log(table);
 })();
