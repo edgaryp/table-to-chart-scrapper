@@ -8,11 +8,19 @@ As a user, I would like to be able to enter a website URL and it will scrap the 
 
 ### Acceptance Criteria
 
+#### AC1
+
 **_GIVEN_** a website contains multiple tables
 
 **_WHEN_** I enter the URL to the application
 
 **_THEN_** I must see chart images are saved
+
+#### AC2
+
+**_GIVEN_** a table doesn't contain any numeric data in the column
+
+**_THEN_** no charts should be generated and saved
 
 ## Scoping
 
@@ -82,4 +90,5 @@ The concept of the project is fairly straightforward and can be broken down into
 
 ## What's next
 
-1. Extend the logic to cover complex tables.2. Provide a UI for receiving URLs from the user.
+1. Extend the logic to cover complex tables.
+2. Provide a UI for receiving URLs from the user.
