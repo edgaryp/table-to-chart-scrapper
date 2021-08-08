@@ -40,7 +40,7 @@ export const tablesToJSON: TablesToJSON = async (content, options) => {
         columnHeaders.push($(headerCell).text().trim());
       });
 
-    const tableJson: Record<string, string>[] = [];
+    const tableJson: TableData = [];
 
     $(table)
       .find('tbody tr')
