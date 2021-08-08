@@ -4,18 +4,19 @@ export type Options = {
   containClasses?: string | string[];
 };
 
-export type TableToJSON = (
+export type TableData = Record<string, string>[];
+
+export type TablesToJSON = (
   content: string,
   options?: Options
-) => Promise<Record<string, string>[][]>;
+) => Promise<TableData[]>;
 
 /**
  * @param content - Extract table elements and return JSON structure
  * @param options - Options for the logic
  * @returns The JSON structure of tables content
  */
-
-export const tableToJSON: TableToJSON = async (content, options) => {
+export const tablesToJSON: TablesToJSON = async (content, options) => {
   const $ = load(content);
 
   let additionalSelector: string = '';
@@ -30,11 +31,7 @@ export const tableToJSON: TableToJSON = async (content, options) => {
 
   const response: Record<string, string>[][] = [];
 
-  $(`table${additionalSelector}`).each((tableIndex, table) => {
-    if (tableIndex !== 0) {
-      return;
-    }
-
+  $(`table${additionalSelector}`).each((_tableIndex, table) => {
     const columnHeaders: string[] = [];
 
     $(table)
