@@ -14,13 +14,13 @@ As a user, I would like to be able to enter a website URL and it will scrap the 
 
 **_WHEN_** I enter the URL to the application
 
-**_THEN_** I must see chart images are saved
+**_THEN_** I must see chart images are saved in `/client` directory
 
 #### AC2
 
 **_GIVEN_** a table doesn't contain any numeric data in the column
 
-**_THEN_** no charts should be generated and saved
+**_THEN_** no charts should be generated and saved in `/client` directory
 
 ## Scoping
 
@@ -87,6 +87,33 @@ The concept of the project is fairly straightforward and can be broken down into
 ### Limitation
 
 1. As mentioned earlier, the logic will only focus on simple tables. For example, tables contain nested tables will not work. We will skip those tables via providing `containClasses` when using `tableToJson`.
+
+## Commits
+
+In order to create a more comprehensible commit history with consistency this services uses conventional commits.
+
+Conventional commits follow the convention of using change types. Which allow for quick identification of what a certain commit is doing. The most common types are feat and fix, and more are listed below. Types aren’t always required, but in situations where a commit is doing something that is difficult to discern without looking into the code, assigning a type in the commit message can be helpful.
+
+| **Type** | **Description**                                                          |
+| -------- | ------------------------------------------------------------------------ |
+| feat     | A new feature (this correlates with MINOR in semantic versioning)        |
+| fix      | A bug fix (this correlates with PATCH in semantic versioning)            |
+| docs     | Changes to documentation                                                 |
+| refactor | A code change that neither fixes a bug nor adds a feature                |
+| test     | Adding missing tests or correcting existing tests                        |
+| chore    | Updating dependencies, build process etc; no production code change      |
+| build    | Changes that affect external dependencies (e.g. gulp, npm, composer)     |
+| ci       | Changes to CI configuration files and scripts                            |
+| perf     | Changes that improve performance                                         |
+| style    | Syntax/formatting related changes (e.g. white space, missing semicolons) |
+| rfc      | Changes to a RFC                                                         |
+
+## Install/Run
+
+To setup the repository, follow these steps:
+
+1. Install the project dependencies `npm install`
+2. `yarn dev` to run development server
 
 ## What's next
 
