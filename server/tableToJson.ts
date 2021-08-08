@@ -29,7 +29,7 @@ export const tablesToJSON: TablesToJSON = async (content, options) => {
     additionalSelector = options?.containClasses || '';
   }
 
-  const response: Record<string, string>[][] = [];
+  const response: TableData[] = [];
 
   $(`table${additionalSelector}`).each((_tableIndex, table) => {
     const columnHeaders: string[] = [];
